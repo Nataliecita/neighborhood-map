@@ -5,10 +5,10 @@ import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-map
 const MyMapComponent = withScriptjs
   (withGoogleMap((props) =>
     <GoogleMap
-      defaultZoom={8}
-      defaultCenter={{ lat: -34.397, lng: 150.644 }}>
+      defaultZoom={13}
+      defaultCenter={{ lat: 25.7617, lng: -80.1918 }}>
         {props.isMarkerShown && <Marker position={{ lat: -34.397, lng: 150.644 }} />}
-  </GoogleMap>
+    </GoogleMap>
 ))
 
 export default class Map extends Component{
