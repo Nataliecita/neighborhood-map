@@ -17,6 +17,14 @@ class App extends Component {
 
   } 
 
+  handleMarkerClick = marker => {
+    console.log(marker)
+    marker.isOpen = true
+    this.setState({
+      markers: Object.assign(this.state.markers, marker)
+    })
+  }
+
   componentDidMount(){
     console.log("mounted!")
     // fetch data from FourSquare API
@@ -43,7 +51,8 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Map {...this.state} />
+          <Map {...this.state}
+            handleMarkerClick= {this.handleMarkerClick} />
           <InfoWindow />
       </div>
     );

@@ -1,6 +1,6 @@
 import React, { Component }from 'react'
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 
 // pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
@@ -16,7 +16,14 @@ const MyMapComponent = withScriptjs(
           // show markers that are visible 
           .filter(marker => marker.isVisible)
           .map((visibleMarker, index) => (
-            <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }} /> 
+            <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
+              onClick= {() =>props.handleMarkerClick(visibleMarker)}> 
+              {visibleMarker.isOpen && (
+                <InfoWindow>
+                <p> meow</p>
+                </InfoWindow>
+              )}
+            </Marker>  
         ))}
     </GoogleMap>
   ))
@@ -35,7 +42,7 @@ export default class Map extends Component{
         containerElement={<div style={{ height: `100vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
       />
-      
+
     )
   }  
 

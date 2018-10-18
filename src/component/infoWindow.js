@@ -3,10 +3,21 @@ import React, { Component } from 'react'
 import SquareAPI from "../API/"
 
 
-class InfoWindow extends Component {
+class InfoWindow extends React.Component {
+
+  state = {
+  	open: true
+  }
+
+	openWindow = () => {
+		// this.setState({ open })
+	}
+
+
 	render(){
 		return(
-			<div> hiiiiiiiiiiiii </div>
+
+			<div> {this.state.open} </div>
 		)
 	}
 }
