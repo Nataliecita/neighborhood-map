@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
+import InfoWindow from "./component/infoWindow"
 
 class App extends Component {
 
@@ -10,7 +11,7 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
-      center: {},
+      center: [],
       zoom: 12
     }
 
@@ -43,8 +44,7 @@ class App extends Component {
     return (
       <div className="App">
           <Map {...this.state} />
-        }
-
+          <InfoWindow />
       </div>
     );
   }

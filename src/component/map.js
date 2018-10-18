@@ -26,6 +26,7 @@ const MyMapComponent = withScriptjs(
 export default class Map extends Component{
   render(){
     return(
+
       <MyMapComponent
         { ...this.props }
 
@@ -33,7 +34,9 @@ export default class Map extends Component{
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
-      />)
+      />
+      
+    )
   }  
 
 } 
