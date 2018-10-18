@@ -10,15 +10,15 @@ class App extends Component {
     this.state = {
       venues: [],
       markers: [],
-      center: [],
+      center: {},
       zoom: 12
     }
 
   } 
 
-
   componentDidMount(){
     console.log("mounted!")
+    // fetch data from FourSquare API
     SquareAPI.search({
       near: "Miami, FL",
       query: "vegan",
@@ -35,18 +35,15 @@ class App extends Component {
         }
       });
       this.setState({venues, center, markers})
-     // console.log(results)
-     console.log(`this is the center: ${center}`)
-     console.log(center.lat)
-
      })
   }
-
-
+       
+ // Pass the state of the app to our map and access them as props
   render() {
     return (
       <div className="App">
           <Map {...this.state} />
+        }
 
       </div>
     );

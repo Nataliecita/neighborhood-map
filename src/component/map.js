@@ -2,6 +2,7 @@ import React, { Component }from 'react'
 
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 
+// pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
   withGoogleMap((props) =>(
     <GoogleMap
@@ -12,6 +13,7 @@ const MyMapComponent = withScriptjs(
     >
         {props.markers && 
           props.markers
+          // show markers that are visible 
           .filter(marker => marker.isVisible)
           .map((visibleMarker, index) => (
             <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }} /> 
