@@ -36,7 +36,7 @@ class App extends Component {
       });
       this.setState({venues, center, markers})
      console.log(results)
-     console.log(center)
+     console.log(`this is the center: ${center}`)
      })
   }
 

@@ -8,7 +8,7 @@ const MyMapComponent = withScriptjs(
       defaultZoom={13} 
       zoom={props.zoom} 
       defaultCenter={{ lat: 25.7617, lng: -80.1918 }} 
-      center= {{ props.center }}
+      // center= {{ props.center }}
     >
         {props.markers && 
           props.markers
