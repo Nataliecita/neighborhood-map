@@ -25,7 +25,7 @@ class App extends Component {
       limit: 10
     }).then(results => {
       const { venues } = results.response
-      const { center } = results.response.geocode.feature.geometry;
+      const { center } = results.response.geocode.feature.geometry.center;
       const markers = venues.map(venue => {
         return {
           lat: venue.location.lat,
@@ -36,6 +36,7 @@ class App extends Component {
       });
       this.setState({venues, center, markers})
      console.log(results)
+     console.log(center)
      })
   }
 
