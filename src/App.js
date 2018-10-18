@@ -6,23 +6,31 @@ import InfoWindow from "./component/infoWindow"
 
 class App extends Component {
 
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       venues: [],
       markers: [],
       center: [],
       zoom: 12
-    }
 
-  } 
+    } 
+  }
 
-  handleMarkerClick = marker => {
-    console.log(marker)
+  handleMarkerClick = (marker) => {
+    this.closeAllMarkers()
     marker.isOpen = true
     this.setState({
       markers: Object.assign(this.state.markers, marker)
     })
+  }
+
+  closeAllMarkers = () => {
+    const markers = this.state.markers.map(marker => {
+      marker.isOpen = false;
+      return marker
+    })
+    this.setState({markers: Object.assign(this.state.markers, markers)})
   }
 
   componentDidMount(){
