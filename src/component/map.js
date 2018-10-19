@@ -15,16 +15,23 @@ const MyMapComponent = withScriptjs(
           props.markers
           // show markers that are visible 
           .filter(marker => marker.isVisible)
-          .map((visibleMarker, index) => (
-            <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
-              onClick= {() =>props.handleMarkerClick(visibleMarker)}> 
-              {visibleMarker.isOpen && (
-                <InfoWindow>
-                <p> meow</p>
-                </InfoWindow>
-              )}
-            </Marker>  
-        ))}
+          .map((visibleMarker, index) => {
+
+            const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
+            return(
+              <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
+                onClick= {() =>props.handleMarkerClick(visibleMarker)}> 
+                {visibleMarker.isOpen && venueInfo.bestPhoto && (
+                  <InfoWindow>
+                  <React.Fragment>
+                    <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`Venue photo of ${venueInfo.name}`}/>
+                    <p> {venueInfo.name}</p>
+                  </React.Fragment> 
+                  </InfoWindow>
+                )}
+              </Marker>  
+            )
+        })}
     </GoogleMap>
   ))
 );
