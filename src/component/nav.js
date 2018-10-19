@@ -10,7 +10,7 @@ class Navbar extends React.Component {
 
 	render(){
 		return(
-			<div> <p> I'm a navbar </p> </div>
+			<div>  I'm a navbar </div>
 		)
 	}
 }

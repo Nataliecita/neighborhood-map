@@ -70,7 +70,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar className="Navbar"/>
+        <div className="Navbar">      
+          <Navbar /> 
+        </div>
+
         <Map {...this.state}
           handleMarkerClick= {this.handleMarkerClick} />
       </div>

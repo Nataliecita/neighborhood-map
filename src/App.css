@@ -3,11 +3,14 @@
   width: 100%;
   text-align: center;
 
-  .Navbar {
-  background-color: #000 !important;
-  }
+  /* start test*/
+/*  background-color: blue;*/
+  /* end test*/
+}
 
-
+.Navbar {
+  background-color: purple;
+  height: 6vh;
 }
 
 
