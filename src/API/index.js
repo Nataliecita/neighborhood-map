@@ -1,3 +1,12 @@
+/**
+* ACKNOWLEDGEMENTS: Forrest Walker Connecting to Foursquare https://www.youtube.com/watch?v=Dj5hzKBxCBI&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP&index=3
+*
+* Tried implementing the connection as seen in "./fourSquareAPI" based on my reads 
+* project but was unable to do so
+*
+*/
+
+
 class Helper {
 	/**
    * API URL.
@@ -8,9 +17,9 @@ class Helper {
 
   static auth(){
   	const myKeys = {
-  		client_id: 'RT5GOOH1MH5QC2J1F05CZ0M5IJO24DHIYD1QFV1IZNWDSXMV',
-  		client_secret: 'VPFPPXYHLMCV0W3X1SE104QZDXOPQ40WIPZZXMPS0M5ZOWFQ',
-  		v: '20181012 '
+  		client_id: 'P3VXAFVX3H40BA3NLZFBHK01VULJDRCPBYKO4BU0WMS400VY',
+  		client_secret: 'EPFAISQSUEQ0FX1KEZP0AGW1LFEFMXJACO3ZEF4TU33LB4PW',
+  		v: '20181019 '
   	}
   	return Object.keys(myKeys)
   		.map(key => `${key}=${myKeys[key]}`)

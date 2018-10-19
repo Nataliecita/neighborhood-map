@@ -2,27 +2,53 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
+import InfoWindow from "./component/infoWindow"
+// import imageHelper from "./imageHelper"
 
 class App extends Component {
 
-  constructor(){
-    super()
+  constructor() {
+    super();
     this.state = {
       venues: [],
       markers: [],
-      center: {},
-      zoom: 12
-    }
+      center: [],
+      zoom: 13
 
-  } 
+    } 
+  }
+
+  handleMarkerClick = (marker) => {
+    this.closeAllMarkers()
+    marker.isOpen = true
+    this.setState({
+      markers: Object.assign(this.state.markers, marker)
+    })
+
+    const venue = this.state.venues.find(venue => venue.id === marker.id)
+
+    SquareAPI.getVenueDetails(marker.id).then(res => {
+      const venueCopy = Object.assign(venue, res.response.venue)
+      this.setState({ venues: Object.assign(this.state.venues, venueCopy)})
+      // console.log(venueCopy)
+    })
+  }
+
+  closeAllMarkers = () => {
+    const markers = this.state.markers.map(marker => {
+      marker.isOpen = false;
+      return marker
+    })
+    this.setState({markers: Object.assign(this.state.markers, markers)})
+  }
 
   componentDidMount(){
     console.log("mounted!")
     // fetch data from FourSquare API
     SquareAPI.search({
       near: "Miami, FL",
-      query: "vegan",
-      limit: 10
+      query: "beer",
+      limit: 2
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;
@@ -31,7 +57,8 @@ class App extends Component {
           lat: venue.location.lat,
           lng: venue.location.lng,
           isOpen: false,
-          isVisible: true 
+          isVisible: true,
+          id: venue.id
         }
       });
       this.setState({venues, center, markers})
@@ -42,9 +69,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Map {...this.state} />
-        }
-
+          <Map {...this.state}
+            handleMarkerClick= {this.handleMarkerClick} />
+          <InfoWindow />
       </div>
     );
   }

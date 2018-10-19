@@ -1,6 +1,6 @@
 import React, { Component }from 'react'
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 
 // pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
@@ -15,9 +15,27 @@ const MyMapComponent = withScriptjs(
           props.markers
           // show markers that are visible 
           .filter(marker => marker.isVisible)
-          .map((visibleMarker, index) => (
-            <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }} /> 
-        ))}
+          .map((visibleMarker, index) => {
+
+            const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
+            return(
+              <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
+                onClick= {() =>props.handleMarkerClick(visibleMarker)}> 
+                {visibleMarker.isOpen && venueInfo.bestPhoto && (
+                  <InfoWindow>
+                  <React.Fragment>
+                    <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`Venue photo of ${venueInfo.name}`}/>
+                    <h2> {venueInfo.name}</h2>
+                    <p> {venueInfo.location['address']}</p>
+                    {venueInfo.price && <p> Price: {venueInfo.price['message']}</p>}
+                    {venueInfo.rating && <p> Rating: {venueInfo.rating}</p>}
+
+                  </React.Fragment> 
+                  </InfoWindow>
+                )}
+              </Marker>  
+            )
+        })}
     </GoogleMap>
   ))
 );
@@ -26,6 +44,7 @@ const MyMapComponent = withScriptjs(
 export default class Map extends Component{
   render(){
     return(
+
       <MyMapComponent
         { ...this.props }
 
@@ -33,7 +52,9 @@ export default class Map extends Component{
         loadingElement={<div style={{ height: `100%` }} />}
         containerElement={<div style={{ height: `100vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
-      />)
+      />
+
+    )
   }  
 
 } 
