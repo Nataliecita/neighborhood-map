@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
-import InfoWindow from "./component/infoWindow"
-// import imageHelper from "./imageHelper"
+import Navbar from "./component/nav"
+
+
 
 class App extends Component {
 
@@ -69,9 +70,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <Map {...this.state}
-            handleMarkerClick= {this.handleMarkerClick} />
-          <InfoWindow />
+        <Navbar className="Navbar"/>
+        <Map {...this.state}
+          handleMarkerClick= {this.handleMarkerClick} />
       </div>
     );
   }

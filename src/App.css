@@ -1,6 +1,16 @@
 .App {
+  height: 100%;
+  width: 100%;
   text-align: center;
+
+  .Navbar {
+  background-color: #000 !important;
+  }
+
+
 }
+
+
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
