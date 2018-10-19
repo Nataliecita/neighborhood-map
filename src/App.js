@@ -3,6 +3,7 @@ import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
 import InfoWindow from "./component/infoWindow"
+// import imageHelper from "./imageHelper"
 
 class App extends Component {
 
@@ -29,7 +30,7 @@ class App extends Component {
     SquareAPI.getVenueDetails(marker.id).then(res => {
       const venueCopy = Object.assign(venue, res.response.venue)
       this.setState({ venues: Object.assign(this.state.venues, venueCopy)})
-      console.log(venueCopy)
+      // console.log(venueCopy)
     })
   }
 
@@ -46,8 +47,8 @@ class App extends Component {
     // fetch data from FourSquare API
     SquareAPI.search({
       near: "Miami, FL",
-      query: "pizza",
-      limit: 20
+      query: "beer",
+      limit: 2
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;

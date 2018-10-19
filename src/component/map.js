@@ -25,7 +25,16 @@ const MyMapComponent = withScriptjs(
                   <InfoWindow>
                   <React.Fragment>
                     <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`Venue photo of ${venueInfo.name}`}/>
-                    <p> {venueInfo.name}</p>
+                    <h2> {venueInfo.name}</h2>
+                    <p> {venueInfo.location['address']}</p>
+                    {venueInfo.price && <p> Price: {venueInfo.price['message']}</p>}
+                    {venueInfo.rating && <p> Rating: {venueInfo.rating}</p>}
+             
+
+                    {console.log(venueInfo.hours)}
+                    {console.log(venueInfo)}
+            
+
                   </React.Fragment> 
                   </InfoWindow>
                 )}
