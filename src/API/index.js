@@ -1,3 +1,12 @@
+/**
+* ACKNOWLEDGEMENTS: Forrest Walker Connecting to Foursquare https://www.youtube.com/watch?v=Dj5hzKBxCBI&list=PL4rQq4MQP1crXuPtruu_eijgOUUXhcUCP&index=3
+*
+* Tried implementing the connection as seen in "./fourSquareAPI" based on my reads 
+* project but was unable to do so
+*
+*/
+
+
 class Helper {
 	/**
    * API URL.

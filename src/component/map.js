@@ -29,11 +29,6 @@ const MyMapComponent = withScriptjs(
                     <p> {venueInfo.location['address']}</p>
                     {venueInfo.price && <p> Price: {venueInfo.price['message']}</p>}
                     {venueInfo.rating && <p> Rating: {venueInfo.rating}</p>}
-             
-
-                    {console.log(venueInfo.hours)}
-                    {console.log(venueInfo)}
-            
 
                   </React.Fragment> 
                   </InfoWindow>
