@@ -19,6 +19,7 @@ class MenuContainer extends Component {
     };
  
     this.handleMouseDown = this.handleMouseDown.bind(this);
+    // console.log(this.handleMouseDown)
     this.toggleMenu = this.toggleMenu.bind(this);
   }
  
@@ -41,8 +42,7 @@ class MenuContainer extends Component {
     return (
       <div>
         <MenuButton handleMouseDown={this.handleMouseDown}/>
-        <Menu handleMouseDown={this.handleMouseDown}
-          menuVisibility={this.state.visible}/>
+        <Menu menuVisibility={this.state.visible}/>
       </div>
     );
   }
