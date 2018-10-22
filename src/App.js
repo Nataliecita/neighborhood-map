@@ -4,8 +4,6 @@ import Map from './component/map'
 import SquareAPI from "./API/"
 import MenuContainer from "./component/menuContainer"
 
-
-
 class App extends Component {
 
   constructor() {
@@ -22,18 +20,27 @@ class App extends Component {
   handleMarkerClick = (marker) => {
     this.closeAllMarkers()
     marker.isOpen = true
+    console.log(marker)
     this.setState({
-      markers: Object.assign(this.state.markers, marker)
+      markers: Object.assign(this.state.markers, marker),
     })
 
     const venue = this.state.venues.find(venue => venue.id === marker.id)
 
     SquareAPI.getVenueDetails(marker.id).then(res => {
       const venueCopy = Object.assign(venue, res.response.venue)
-      this.setState({ venues: Object.assign(this.state.venues, venueCopy)})
-      // console.log(venueCopy)
+      this.setState({ 
+        venues: Object.assign(this.state.venues, venueCopy),
+        center: Object.assign({
+                // Tell the map to center itself north of markers actual coordinates so there's enough screen space for infowindow.  
+                lat: (marker.lat + 0.006),
+                lng: marker.lng
+            })
+
+      })
     })
   }
+
 
   closeAllMarkers = () => {
     const markers = this.state.markers.map(marker => {
