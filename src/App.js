@@ -3,6 +3,7 @@ import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
 import Navbar from "./component/nav"
+import MenuContainer from "./component/menuContainer"
 
 
 
@@ -70,12 +71,11 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="Navbar">      
-          <Navbar /> 
-        </div>
+        <div id="container">
 
-        <Map {...this.state}
-          handleMarkerClick= {this.handleMarkerClick} />
+          <MenuContainer />
+        </div> 
+       <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
       </div>
     );
   }

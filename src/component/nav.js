@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import menu from '../menu.svg';
+
 
 
 class Navbar extends React.Component {
@@ -10,7 +12,19 @@ class Navbar extends React.Component {
 
 	render(){
 		return(
-			<div>  I'm a navbar </div>
+			<div> 
+        <a id="menu" className="header__menu">
+          <img src={menu} className="" alt="menu" />
+    		</a>		
+			  <nav id="drawer" className="nav">
+			    <ul className="nav__list">
+			      <li className="nav__item"><a href="#">News</a></li>
+			      <li className="nav__item"><a href="#">Events</a></li>
+			      <li className="nav__item"><a href="#">Culture</a></li>
+			      <li className="nav__item"><a href="#">Blog</a></li>
+			    </ul>
+			  </nav>
+			</div>
 		)
 	}
 }
