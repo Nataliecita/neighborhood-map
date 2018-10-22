@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
-import Navbar from "./component/nav"
 import MenuContainer from "./component/menuContainer"
 
 
