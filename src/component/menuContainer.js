@@ -19,7 +19,6 @@ class MenuContainer extends Component {
     };
  
     this.handleMouseDown = this.handleMouseDown.bind(this);
-    // console.log(this.handleMouseDown)
     this.toggleMenu = this.toggleMenu.bind(this);
   }
  
