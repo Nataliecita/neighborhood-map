@@ -26,7 +26,7 @@ class Menu extends Component {
     console.log(venuesFiltered)
   }
 
-  displayFilteredResults()
+  // displayFilteredResults()
 
 
   render() {
