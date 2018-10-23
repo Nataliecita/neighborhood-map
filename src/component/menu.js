@@ -21,12 +21,6 @@ class Menu extends Component {
     this.setState({filteredMarkers: Object.assign(this.state.fileteredMarkers, markersFiltered)}) 
   }
 
-  // console.log(`after ${filteredMarkers}`)
-
-  // console.log(this.props.venues)
-  // console.log(this.props.markers)
-  // console
-
   render() {
     var visibility = "hide";
  
