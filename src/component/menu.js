@@ -13,13 +13,12 @@ class Menu extends Component {
   }
 
   displayFilteredResults = () => {
-    const markersFiltered = this.props.markers.filter(marker =>{
-      
-      marker.isVisible === true
-    })
+    const markersFiltered = this.props.markers.filter(marker => marker.isVisible === true)
 
     this.setState({filteredMarkers: Object.assign(this.state.fileteredMarkers, markersFiltered)}) 
   }
+
+  // console.log()
 
   render() {
     var visibility = "hide";
