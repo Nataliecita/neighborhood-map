@@ -32,6 +32,12 @@ body {
     height: 100vh;
 }   */ 
 
+#search {
+  width: 80%;
+  margin: 10px;
+  font-size: 16px;
+}
+
 
 
 
