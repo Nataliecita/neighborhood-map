@@ -41,7 +41,7 @@ class MenuContainer extends Component {
     return (
       <div>
         <MenuButton handleMouseDown={this.handleMouseDown}/>
-        <Menu menuVisibility={this.state.visible} />
+        <Menu menuVisibility={this.state.visible} {...this.props}/>
       </div>
     );
   }

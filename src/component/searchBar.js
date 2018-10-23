@@ -15,7 +15,7 @@ class SearchBar extends Component {
           placeholder="Search..."
           value={this.props.filterText}
           ref="filterTextInput"
-          onChange={this.handleChange}
+          // onChange={this.handleChange}
         />
       </form>
     );

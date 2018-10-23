@@ -79,11 +79,11 @@ class App extends Component {
 *
 */
   // for search function
-  handleUserInput = (filterText) => {
-    this.setState({
-      filterText: filterText,
-    });
-  }
+  // handleUserInput = (filterText) => {
+  //   this.setState({
+  //     filterText: filterText,
+  //   });
+  // }
 /*
 * TESTING FOR SEARCH FUNCTION
 *
@@ -97,7 +97,7 @@ class App extends Component {
       <div className="App">
         <div id="container">
 
-          <MenuContainer />
+          <MenuContainer {...this.state}/>
         </div> 
        <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
       </div>
