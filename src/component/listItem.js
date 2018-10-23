@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class ListItem extends Component {
 	render() {
 		return (
-			"I'm a list item"
+			<li onClick={() => this.props.handleClickItem(this.props)}> {this.props.name}</li>
 		);
 	}
 }

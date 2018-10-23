@@ -20,13 +20,13 @@
   overflow: hidden;
 }
  
-#flyoutMenu ul ol{
-  color: #333;
-  margin-left: 15px;
-  text-decoration: none;
+#flyoutMenu ul li {
+  text-align: left;
+  list-style: none;
+  padding: 10px;
 }
  
-#flyoutMenu ul ol:hover {
+#flyoutMenu ul li:hover {
   text-decoration: underline;
   cursor: pointer;
 }

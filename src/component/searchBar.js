@@ -2,11 +2,12 @@ import React, { Component } from "react";
 
 class SearchBar extends Component {
 
-  // handleChange = () => {
-  //   this.props.onUserInput(
-  //     this.refs.filterTextInput.value,
-  //   );
-  // }
+  handleChange = () => {
+    // this.props.onUserInput(
+    //   this.refs.filterTextInput.value,
+    // );
+    this.props.displayFilteredResults()
+  }
   render() {
     return (
 
@@ -16,7 +17,7 @@ class SearchBar extends Component {
           id={"search"}
           // value={this.props.filterText}
           // ref="filterTextInput"
-          // onChange={this.handleChange}
+          onChange={this.handleChange}
         />
 
     );

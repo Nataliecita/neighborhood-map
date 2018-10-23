@@ -13,17 +13,22 @@ class Menu extends Component {
     }
   }
 
+  componentWillMount(){
+    this.displayFilteredResults()
+  }
+
+  // Update the state of the venues filtered based on the markers who are visible, which will depend on the search item. This function is called on every change from the search box
   displayFilteredResults = () => {
     const markersFiltered = this.props.markers.filter(marker => marker.isVisible === true)
 
-    this.setState({filteredMarkers: Object.assign(this.state.filteredMarkers, markersFiltered)}) 
-      
+    this.setState({filteredMarkers: Object.assign(this.state.filteredMarkers, markersFiltered)})       
 
-    const venuesFiltered = this.props.venues.map(venue => {
-       this.state.filteredMarkers.filter(filteredMarker => venue.id === filteredMarker.id)
+    const venuesFiltered = this.state.filteredMarkers.map(marker => {
+       return this.props.venues.find(venue => venue.id === marker.id)
     })
+    // console.log(venuesFiltered)
+    this.setState({venuesFiltered: Object.assign(this.state.venuesFiltered, venuesFiltered)})
 
-    console.log(venuesFiltered)
   }
 
   // displayFilteredResults()
@@ -40,11 +45,10 @@ class Menu extends Component {
       <div id="flyoutMenu"
            onMouseDown={this.props.handleMouseDown} 
            className={visibility}>
-           <SearchBar />
+           <SearchBar displayFilteredResults={this.displayFilteredResults}/>
         <ul>
-
-          <ol> <ListItem /></ol>
-          <ol> <ListItem /></ol>
+           {this.state.venuesFiltered && this.state.venuesFiltered.map((venue, index) => <ListItem  key={index} { ...venue } handleClickItem={this.props.handleClickItem} />)} 
+      
         </ul>
 
       </div>

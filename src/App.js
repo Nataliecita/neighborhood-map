@@ -50,6 +50,10 @@ class App extends Component {
     this.setState({markers: Object.assign(this.state.markers, markers)})
   }
 
+  handleClickItem = (venue) => {
+    console.log(venue);
+  }
+
   componentDidMount(){
     console.log("mounted!")
     // fetch data from FourSquare API
@@ -97,7 +101,7 @@ class App extends Component {
       <div className="App">
         <div id="container">
 
-          <MenuContainer {...this.state}/>
+          <MenuContainer {...this.state} handleClickItem={this.handleClickItem}/>
         </div> 
        <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
       </div>
