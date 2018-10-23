@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "../Menu.css";
+import SearchBar from "./searchBar";
  
 class Menu extends Component {
   render() {
@@ -13,10 +14,12 @@ class Menu extends Component {
       <div id="flyoutMenu"
            onMouseDown={this.props.handleMouseDown} 
            className={visibility}>
-        <h2><a href="#">Home</a></h2>
-        <h2><a href="#">About</a></h2>
-        <h2><a href="#">Contact</a></h2>
-        <h2><a href="#">Search</a></h2>
+           <SearchBar />
+        <ul>
+          <ol> somethin</ol>
+          <ol> something2</ol>
+        </ul>
+
       </div>
     );
   }

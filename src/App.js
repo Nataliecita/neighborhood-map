@@ -12,8 +12,8 @@ class App extends Component {
       venues: [],
       markers: [],
       center: [],
-      zoom: 13
-
+      zoom: 13,
+      filterText: ""
     } 
   }
 
@@ -33,7 +33,7 @@ class App extends Component {
         venues: Object.assign(this.state.venues, venueCopy),
         center: Object.assign({
                 // Tell the map to center itself north of markers actual coordinates so there's enough screen space for infowindow.  
-                lat: (marker.lat + 0.006),
+                lat: (marker.lat + 0.009),
                 lng: marker.lng
             })
 
@@ -72,6 +72,24 @@ class App extends Component {
       this.setState({venues, center, markers})
      })
   }
+
+/*
+* TESTING FOR SEARCH FUNCTION
+*
+*
+*/
+  // for search function
+  handleUserInput = (filterText) => {
+    this.setState({
+      filterText: filterText,
+    });
+  }
+/*
+* TESTING FOR SEARCH FUNCTION
+*
+*
+*/
+
        
  // Pass the state of the app to our map and access them as props
   render() {
