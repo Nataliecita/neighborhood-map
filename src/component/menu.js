@@ -8,17 +8,26 @@ class Menu extends Component {
     super(props)
 
     this.state = {
-      filteredMarkers: []
+      filteredMarkers: [],
+      venuesFiltered: []
     }
   }
 
   displayFilteredResults = () => {
     const markersFiltered = this.props.markers.filter(marker => marker.isVisible === true)
 
-    this.setState({filteredMarkers: Object.assign(this.state.fileteredMarkers, markersFiltered)}) 
+    this.setState({filteredMarkers: Object.assign(this.state.filteredMarkers, markersFiltered)}) 
+      
+
+    const venuesFiltered = this.props.venues.map(venue => {
+       this.state.filteredMarkers.filter(filteredMarker => venue.id === filteredMarker.id)
+    })
+
+    console.log(venuesFiltered)
   }
 
-  // console.log()
+  displayFilteredResults()
+
 
   render() {
     var visibility = "hide";
