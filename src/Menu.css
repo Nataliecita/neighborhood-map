@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: mediumaquamarine;
   position: fixed;
-  top: 0;
+  /*top: 0;*/
   left: 0;
   transition: transform .3s
               cubic-bezier(0, .52, 0, 1);
@@ -20,12 +20,13 @@
   overflow: hidden;
 }
  
-#flyoutMenu h2 a {
+#flyoutMenu ul ol{
   color: #333;
   margin-left: 15px;
   text-decoration: none;
 }
  
-#flyoutMenu h2 a:hover {
+#flyoutMenu ul ol:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
