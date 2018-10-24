@@ -55,6 +55,18 @@ class App extends Component {
     this.handleMarkerClick(marker)
   }
 
+  handleChange = event => {
+    // console.log(event.target.value)
+    const input = event.target.value
+    // console.log(input)
+    // console.log(this.state.filterText)
+
+    this.setState({filterText: input})
+    console.log(this.state.filterText)
+
+  }
+
+
   componentDidMount(){
     console.log("mounted!")
     // fetch data from FourSquare API
@@ -102,7 +114,7 @@ class App extends Component {
       <div className="App">
         <div id="container">
 
-          <MenuContainer {...this.state} handleClickItem={this.handleClickItem}/>
+          <MenuContainer {...this.state} handleClickItem={this.handleClickItem} handleChange={this.handleChange}/>
         </div> 
        <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
       </div>

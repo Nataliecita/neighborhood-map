@@ -31,7 +31,9 @@ class Menu extends Component {
 
   }
 
-  // displayFilteredResults()
+
+
+
 
 
   render() {
@@ -45,7 +47,9 @@ class Menu extends Component {
       <div id="flyoutMenu"
            onMouseDown={this.props.handleMouseDown} 
            className={visibility}>
-           <SearchBar displayFilteredResults={this.displayFilteredResults}/>
+
+          <SearchBar displayFilteredResults={this.displayFilteredResults} handleChange = {this.props.handleChange} />
+
         <ul>
         {
         // tried looping over this.state.filteredVenues, however becasue the function that updated filtered venues is only called after there is on change in the search box, it starts being empty in the beginning

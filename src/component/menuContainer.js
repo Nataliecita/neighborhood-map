@@ -8,6 +8,7 @@ https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
 import React, { Component } from "react";
 import MenuButton from './menuButton'
 import Menu from './menu'
+import SearchBar from "./searchBar";
  
 class MenuContainer extends Component {
   
@@ -37,12 +38,18 @@ class MenuContainer extends Component {
     );
   }
 
+  handleChange = event => {
+
+  }
+ 
+
   render() {
     return (
       <div>
         <MenuButton handleMouseDown={this.handleMouseDown}/>
+
         <Menu menuVisibility={this.state.visible} {...this.props}
-        handleClickItem={this.props.handleClickItem}/>
+        handleClickItem={this.props.handleClickItem} handleChange={this.props.handleChange}/>
       </div>
     );
   }
