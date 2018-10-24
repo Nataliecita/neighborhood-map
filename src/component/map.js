@@ -49,9 +49,9 @@ export default class Map extends Component{
         { ...this.props }
 
         googleMapURL="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyCD-DmyxmoXqHbigoPsH5au8muatMsj9q4"
-        loadingElement={<div style={{ height: `96%` }} />}
-        containerElement={<div style={{ height: `96vh` }} />}
-        mapElement={<div style={{ height: `96%` }} />}
+        loadingElement={<div style={{ height: `92%` }} />}
+        containerElement={<div style={{ height: `92vh` }} />}
+        mapElement={<div style={{ height: `100%` }} />}
       />
 
     )

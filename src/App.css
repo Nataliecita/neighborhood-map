@@ -7,7 +7,7 @@
 
 #container {
     background-color: teal;
-
+    height: 8vh;
 }
 
 body {
@@ -32,9 +32,11 @@ body {
     height: 100vh;
 }   */ 
 
-
-
-
+#search {
+  width: 80%;
+  margin: 10px;
+  font-size: 16px;
+}
 
 .App-header {
   background-color: #282c34;
