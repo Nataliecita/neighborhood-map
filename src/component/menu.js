@@ -4,10 +4,6 @@ import SearchBar from "./searchBar";
 import ListItem from "./listItem";
  
 class Menu extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     var visibility = "hide";
  
@@ -28,6 +24,6 @@ class Menu extends Component {
       </div>
     );
   }
-}
+}  
  
 export default Menu;

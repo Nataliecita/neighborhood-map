@@ -2,7 +2,7 @@
   height: 100%;
   width: 100%;
   text-align: center;
-
+  overflow: auto;
 }
 
 #container {
@@ -39,5 +39,10 @@ body {
 .App-link {
   color: #61dafb;
 }
+
+.footer{
+  background-color: red;
+}
+
 
 

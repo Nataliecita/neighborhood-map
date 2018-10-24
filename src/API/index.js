@@ -52,7 +52,13 @@ class Helper {
   			urlParams
   		)}`,
   		requestData
-  	).then(response => response.json());
+  	).then(response => response.json())
+      .catch(err => {
+
+        alert('Error While getting data from FourSquare API')
+        console.error(err)
+      })
+    ;
   }
 }
 

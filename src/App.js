@@ -3,6 +3,7 @@ import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
 import MenuContainer from "./component/menuContainer"
+import Footer from "./component/footer"
 
 class App extends Component {
 
@@ -20,7 +21,7 @@ class App extends Component {
   handleMarkerClick = (marker) => {
     this.closeAllMarkers()
     marker.isOpen = true
-    console.log(marker)
+
     this.setState({
       markers: Object.assign(this.state.markers, marker),
     })
@@ -39,6 +40,10 @@ class App extends Component {
 
       })
     })
+    // console.log(marker)
+
+    // animate marker when selected
+    // marker.animation = window.google.maps.Animation.DROP
   }
 
 
@@ -95,7 +100,8 @@ class App extends Component {
           lng: venue.location.lng,
           isOpen: false,
           isVisible: true,
-          id: venue.id
+          id: venue.id,
+          animation: ""
         }
       });
       this.setState({venues, center, markers})
@@ -106,11 +112,13 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <div id="container">
+        <div id="container" aria-haspopup="true">
 
-          <MenuContainer {...this.state} handleClickItem={this.handleClickItem} handleChange={this.handleChange}/>
+          <MenuContainer  {...this.state} handleClickItem={this.handleClickItem} handleChange={this.handleChange}/>
         </div> 
-       <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
+        <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
+
+
       </div>
     );
   }

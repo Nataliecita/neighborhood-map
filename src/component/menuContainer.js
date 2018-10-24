@@ -8,7 +8,6 @@ https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
 import React, { Component } from "react";
 import MenuButton from './menuButton'
 import Menu from './menu'
-import SearchBar from "./searchBar";
  
 class MenuContainer extends Component {
   

@@ -9,6 +9,7 @@
               cubic-bezier(0, .52, 0, 1);
   overflow: scroll;
   z-index: 1000;
+
 }
  
 #flyoutMenu.hide {
@@ -29,4 +30,14 @@
 #flyoutMenu ul li:hover {
   text-decoration: underline;
   cursor: pointer;
+}
+
+@media (max-width: 600px) {
+  #flyoutMenu {
+    width: 80%
+  }
+
+  #flyoutMenu.hide {
+    transform: translate3d(-80vw, 0, 0);
+  }
 }
