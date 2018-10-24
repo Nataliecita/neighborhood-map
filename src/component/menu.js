@@ -13,9 +13,9 @@ class Menu extends Component {
     }
   }
 
-  componentWillMount(){
-    this.displayFilteredResults()
-  }
+  // componentDidMount(){
+  //   this.displayFilteredResults()
+  // }
 
   // Update the state of the venues filtered based on the markers who are visible, which will depend on the search item. This function is called on every change from the search box
   displayFilteredResults = () => {
@@ -47,7 +47,10 @@ class Menu extends Component {
            className={visibility}>
            <SearchBar displayFilteredResults={this.displayFilteredResults}/>
         <ul>
-           {this.state.venuesFiltered && this.state.venuesFiltered.map((venue, index) => <ListItem  key={index} { ...venue } handleClickItem={this.props.handleClickItem} />)} 
+        {
+        // tried looping over this.state.filteredVenues, however becasue the function that updated filtered venues is only called after there is on change in the search box, it starts being empty in the beginning
+        }
+           {this.props.venues && this.props.venues.map((venue, index) => <ListItem  key={index} { ...venue } handleClickItem={this.props.handleClickItem} />)} 
       
         </ul>
 
