@@ -90,7 +90,7 @@ class App extends Component {
     SquareAPI.search({
       near: "Miami, FL",
       query: "beer",
-      limit: 2
+      limit: 6
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;
@@ -107,6 +107,7 @@ class App extends Component {
       this.setState({venues, center, markers})
      })
   }
+
 
  // Pass the state of the app to our map and access them as props
   render() {
