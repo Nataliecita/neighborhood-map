@@ -3,7 +3,7 @@
   height: 100vh;
   background-color: mediumaquamarine;
   position: fixed;
-  /*top: 0;*/
+  top: 60px;
   left: 0;
   transition: transform .3s
               cubic-bezier(0, .52, 0, 1);
