@@ -1,14 +1,6 @@
 import React, { Component } from "react";
 
 class SearchBar extends Component {
-
-  handleChange2 = () => {
-    // this.props.onUserInput(
-    //   this.refs.filterTextInput.value,
-    // );
-    this.props.displayFilteredResults()
-  }
-
   
   render() {
     return (
@@ -17,8 +9,6 @@ class SearchBar extends Component {
           type={"search"}
           placeholder="Search venue..."
           id={"search"}
-          // value={this.props.filterText}
-          // ref="filterTextInput"
           onChange={this.props.handleChange}
         />
 

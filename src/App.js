@@ -42,6 +42,8 @@ class App extends Component {
   }
 
 
+
+
   closeAllMarkers = () => {
     const markers = this.state.markers.map(marker => {
       marker.isOpen = false;
@@ -56,14 +58,24 @@ class App extends Component {
   }
 
   handleChange = event => {
-    // console.log(event.target.value)
     const input = event.target.value
-    // console.log(input)
-    // console.log(this.state.filterText)
 
     this.setState({filterText: input})
-    console.log(this.state.filterText)
+    const markers = this.state.venues.map( venue => {
+      const isMatched = venue.name
+        .toLowerCase()
+        .includes(input.toLowerCase())
 
+      const marker = this.state.markers.find(marker => marker.id === venue.id)
+      if(isMatched){
+        marker.isVisible = true
+      } else{
+        marker.isVisible = false
+      }
+      return marker
+    })
+
+    this.setState({markers: markers} )
   }
 
 
