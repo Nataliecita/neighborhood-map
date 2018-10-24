@@ -102,24 +102,6 @@ class App extends Component {
      })
   }
 
-/*
-* TESTING FOR SEARCH FUNCTION
-*
-*
-*/
-  // for search function
-  // handleUserInput = (filterText) => {
-  //   this.setState({
-  //     filterText: filterText,
-  //   });
-  // }
-/*
-* TESTING FOR SEARCH FUNCTION
-*
-*
-*/
-
-       
  // Pass the state of the app to our map and access them as props
   render() {
     return (
