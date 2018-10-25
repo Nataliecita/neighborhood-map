@@ -2,12 +2,12 @@
   height: 100%;
   width: 100%;
   text-align: center;
-
+  overflow: auto;
 }
 
 #container {
     background-color: teal;
-    height: 8vh;
+    height: 60px;
 }
 
 body {
@@ -17,25 +17,12 @@ body {
   margin: 0;
   overflow: auto;
 }
- 
-/*#container li {
-  margin-bottom: 10px;
-}*/
-
-/*#theMenu {
-    position: fixed;
-    left: 0;
-    top: 0;
-    transform: translate3d(-100vw, 0, 0);
-         
-    width: 100vw;
-    height: 100vh;
-}   */ 
 
 #search {
   width: 80%;
   margin: 10px;
   font-size: 16px;
+  background-color: aliceblue;
 }
 
 .App-header {
@@ -52,5 +39,10 @@ body {
 .App-link {
   color: #61dafb;
 }
+
+.footer{
+  background-color: red;
+}
+
 
 

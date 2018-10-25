@@ -1,6 +1,6 @@
 import React, { Component }from 'react'
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow } from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
 
 // pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
@@ -20,11 +20,12 @@ const MyMapComponent = withScriptjs(
             const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
-                onClick= {() =>props.handleMarkerClick(visibleMarker)}> 
+                onClick= {() =>props.handleMarkerClick(visibleMarker)} 
+                > 
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                   <React.Fragment>
-                    <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`Venue photo of ${venueInfo.name}`}/>
+                    <img src={`${venueInfo.bestPhoto.prefix}200x200${venueInfo.bestPhoto.suffix}`} alt={`Venue: ${venueInfo.name}`}/>
                     <h2> {venueInfo.name}</h2>
                     <p> {venueInfo.location['address']}</p>
                     {venueInfo.price && <p> Price: {venueInfo.price['message']}</p>}
@@ -52,6 +53,7 @@ export default class Map extends Component{
         loadingElement={<div style={{ height: `92%` }} />}
         containerElement={<div style={{ height: `92vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
+        role="navigation"
       />
 
     )

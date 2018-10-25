@@ -17,8 +17,8 @@ class Helper {
 
   static auth(){
   	const myKeys = {
-  		client_id: 'P3VXAFVX3H40BA3NLZFBHK01VULJDRCPBYKO4BU0WMS400VY',
-  		client_secret: 'EPFAISQSUEQ0FX1KEZP0AGW1LFEFMXJACO3ZEF4TU33LB4PW',
+  		client_id: 'RT5GOOH1MH5QC2J1F05CZ0M5IJO24DHIYD1QFV1IZNWDSXMV',
+  		client_secret: 'VPFPPXYHLMCV0W3X1SE104QZDXOPQ40WIPZZXMPS0M5ZOWFQ',
   		v: '20181019 '
   	}
   	return Object.keys(myKeys)
@@ -52,7 +52,13 @@ class Helper {
   			urlParams
   		)}`,
   		requestData
-  	).then(response => response.json());
+  	).then(response => response.json())
+      .catch(err => {
+
+        alert('Error While getting data from FourSquare API')
+        console.error(err)
+      })
+    ;
   }
 }
 

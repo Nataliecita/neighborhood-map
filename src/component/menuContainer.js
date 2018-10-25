@@ -8,7 +8,6 @@ https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
 import React, { Component } from "react";
 import MenuButton from './menuButton'
 import Menu from './menu'
-import SearchBar from "./searchBar";
  
 class MenuContainer extends Component {
   
@@ -21,6 +20,17 @@ class MenuContainer extends Component {
  
     this.handleMouseDown = this.handleMouseDown.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
+  }
+
+  handleFilterVenues = () => {
+    if(this.props.filterText !== ""){
+      const venues = this.props.venues.filter(venue => venue.name
+        .toLowerCase()
+        .includes(this.props.filterText.toLowerCase()))
+        return venues;
+    }
+    // In case there is no search you still return the starting venues
+    return this.props.venues
   }
  
   handleMouseDown(e) {
@@ -36,12 +46,7 @@ class MenuContainer extends Component {
         visible: !this.state.visible
       }
     );
-  }
-
-  handleChange = event => {
-
-  }
- 
+  } 
 
   render() {
     return (
@@ -49,7 +54,7 @@ class MenuContainer extends Component {
         <MenuButton handleMouseDown={this.handleMouseDown}/>
 
         <Menu menuVisibility={this.state.visible} {...this.props}
-        handleClickItem={this.props.handleClickItem} handleChange={this.props.handleChange}/>
+        handleClickItem={this.props.handleClickItem} handleChange={this.props.handleChange} venues = {this.handleFilterVenues()}/>
       </div>
     );
   }
