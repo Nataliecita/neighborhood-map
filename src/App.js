@@ -4,6 +4,8 @@ import Map from './component/map'
 import SquareAPI from "./API/"
 import MenuContainer from "./component/menuContainer"
 import Footer from "./component/footer"
+import { withGoogleMap, GoogleMap, Animation } from "react-google-maps"
+
 
 class App extends Component {
 
@@ -18,9 +20,13 @@ class App extends Component {
     } 
   }
 
+
   handleMarkerClick = (marker) => {
     this.closeAllMarkers()
     marker.isOpen = true
+
+    // marker.animation = window.google.maps.Animation.BOUNCE;
+    // setTimeout(function(){ marker.setAnimation(null);}, 750);
 
     this.setState({
       markers: Object.assign(this.state.markers, marker),
@@ -46,8 +52,13 @@ class App extends Component {
     // marker.animation = window.google.maps.Animation.DROP
   }
 
-
-
+  toggleBounce = (marker) => {
+    if (marker.getAnimation() !== null) {
+      marker.setAnimation(null);
+    } else {
+      marker.setAnimation(google.maps.Animation.BOUNCE);
+    }
+  }
 
   closeAllMarkers = () => {
     const markers = this.state.markers.map(marker => {
@@ -83,14 +94,13 @@ class App extends Component {
     this.setState({markers: markers} )
   }
 
-
   componentDidMount(){
     console.log("mounted!")
     // fetch data from FourSquare API
     SquareAPI.search({
       near: "Miami, FL",
       query: "beer",
-      limit: 6
+      limit: 2
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;

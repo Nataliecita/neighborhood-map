@@ -1,6 +1,6 @@
 import React, { Component }from 'react'
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, Animation} from "react-google-maps"
 
 // pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
@@ -21,7 +21,7 @@ const MyMapComponent = withScriptjs(
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
                 onClick= {() =>props.handleMarkerClick(visibleMarker)} 
-                > 
+                Animation= {null} > 
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                   <React.Fragment>
