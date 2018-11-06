@@ -7,6 +7,8 @@ import Footer from "./component/footer"
 import { withGoogleMap, GoogleMap, Animation } from "react-google-maps"
 
 
+/*global google*/
+
 class App extends Component {
 
   constructor() {
@@ -25,8 +27,9 @@ class App extends Component {
     this.closeAllMarkers()
     marker.isOpen = true
 
-    // marker.animation = window.google.maps.Animation.BOUNCE;
-    // setTimeout(function(){ marker.setAnimation(null);}, 750);
+    marker.animation= window.google.maps.Animation.BOUNCE;
+    // this.props.google.maps.Animation.BOUNCE
+
 
     this.setState({
       markers: Object.assign(this.state.markers, marker),
@@ -46,18 +49,6 @@ class App extends Component {
 
       })
     })
-    // console.log(marker)
-
-    // animate marker when selected
-    // marker.animation = window.google.maps.Animation.DROP
-  }
-
-  toggleBounce = (marker) => {
-    if (marker.getAnimation() !== null) {
-      marker.setAnimation(null);
-    } else {
-      marker.setAnimation(google.maps.Animation.BOUNCE);
-    }
   }
 
   closeAllMarkers = () => {
@@ -110,10 +101,13 @@ class App extends Component {
           lng: venue.location.lng,
           isOpen: false,
           isVisible: true,
-          id: venue.id,
-          animation: ""
+          id: venue.id, 
+          // add animation here?
+          animation: window.google.maps.Animation.DROP
+          // animation: null
         }
       });
+      console.log( `hiiiii`,markers)
       this.setState({venues, center, markers})
      })
   }

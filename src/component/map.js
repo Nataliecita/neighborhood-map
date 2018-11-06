@@ -1,3 +1,5 @@
+/*global google*/
+
 import React, { Component }from 'react'
 
 import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, Animation} from "react-google-maps"
@@ -16,12 +18,22 @@ const MyMapComponent = withScriptjs(
           // show markers that are visible 
           .filter(marker => marker.isVisible)
           .map((visibleMarker, index) => {
-
+      
             const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
                 onClick= {() =>props.handleMarkerClick(visibleMarker)} 
-                Animation= {null} > 
+                // animation: google.maps.Animation.DROP
+
+
+
+                // onClick={() => props.animation = setAnimation(window.google.maps.Animation.BOUNCE)}
+
+                
+                // onClick={() => props.animation = this.props.google.maps.Animation.BOUNCE}
+                // animation= {props.animation.setAnimation(window.google.maps.Animation.BOUNCE)}
+                >
+
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                   <React.Fragment>
@@ -41,6 +53,8 @@ const MyMapComponent = withScriptjs(
   ))
 );
 
+// animation={window.google.maps.Animation.DROP}  
+
 
 export default class Map extends Component{
   render(){
@@ -54,6 +68,7 @@ export default class Map extends Component{
         containerElement={<div style={{ height: `92vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         role="navigation"
+        aria-label= "map"
       />
 
     )
