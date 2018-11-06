@@ -121,6 +121,8 @@ class App extends Component {
         <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
 
 
+              Data provided by FourSquare
+
       </div>
     );
   }

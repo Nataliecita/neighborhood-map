@@ -21,6 +21,8 @@ class Menu extends Component {
         <ul> 
          {this.props.venues && this.props.venues.map((venue, index) => <ListItem  key={index} { ...venue } handleClickItem={this.props.handleClickItem} />)} 
         </ul>
+
+        Information provided by FourSquare
       </div>
     );
   }
