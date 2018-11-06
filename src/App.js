@@ -27,9 +27,7 @@ class App extends Component {
     this.closeAllMarkers()
     marker.isOpen = true
 
-    // marker.animation= window.google.maps.Animation.BOUNCE;
-    // this.props.google.maps.Animation.BOUNCE
-
+    // marker.setAnimation(window.google.maps.Animation.BOUNCE);
 
     this.setState({
       markers: Object.assign(this.state.markers, marker),
@@ -103,8 +101,7 @@ class App extends Component {
           isVisible: true,
           id: venue.id, 
           // add animation here?
-          animation: window.google.maps.Animation.DROP
-          // animation: null
+          // animation: window.google.maps.Animation.DROP
         }
       });
       console.log( `hiiiii`,markers)

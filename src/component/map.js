@@ -12,7 +12,8 @@ const MyMapComponent = withScriptjs(
       zoom={props.zoom} 
       defaultCenter={{ lat: 25.7617, lng: -80.1918 }} 
       center= {{ lat:parseFloat(props.center.lat), lng: parseFloat(props.center.lng) }}
-    >
+
+    >  
         {props.markers && 
           props.markers
           // show markers that are visible 
@@ -20,16 +21,25 @@ const MyMapComponent = withScriptjs(
           .map((visibleMarker, index) => {
       
             const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
+
+            
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
-                onClick= {() =>props.handleMarkerClick(visibleMarker)} 
+                onClick= {
+                  () =>props.handleMarkerClick(visibleMarker)} 
 
+                // icon= {'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
 
+                // marker.setIcon('https://www.google.com/mapfiles/marker_green.png')
+
+                // animation={ google.maps.Animation.DROP}    
+                defaultAnimation={google.maps.Animation.BOUNCE}
+                // animation={ google.maps.Animation.DROP}    
+
+                // marker.addListener('click', toggleBounce);
                 // animation = setAnimation(window.google.maps.Animation.BOUNCE)
 
-
-
-                // onClick={() => props.animation = setAnimation(window.google.maps.Animation.BOUNCE)}
+                // onClick= {() => props.changeMarker(visibleMarker)}
 
                 
                 // onClick={() => props.animation = this.props.google.maps.Animation.BOUNCE}
