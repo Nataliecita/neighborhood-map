@@ -27,7 +27,7 @@ class App extends Component {
     this.closeAllMarkers()
     marker.isOpen = true
 
-    marker.animation= window.google.maps.Animation.BOUNCE;
+    // marker.animation= window.google.maps.Animation.BOUNCE;
     // this.props.google.maps.Animation.BOUNCE
 
 
@@ -41,11 +41,11 @@ class App extends Component {
       const venueCopy = Object.assign(venue, res.response.venue)
       this.setState({ 
         venues: Object.assign(this.state.venues, venueCopy),
-        center: Object.assign({
-                // Tell the map to center itself north of markers actual coordinates so there's enough screen space for infowindow.  
-                lat: (marker.lat + 0.009),
-                lng: marker.lng
-            })
+        // center: Object.assign({
+        //         // Tell the map to center itself north of markers actual coordinates so there's enough screen space for infowindow.  
+        //         lat: (marker.lat + 0.009),
+        //         lng: marker.lng
+        //     })
 
       })
     })

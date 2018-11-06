@@ -23,7 +23,9 @@ const MyMapComponent = withScriptjs(
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
                 onClick= {() =>props.handleMarkerClick(visibleMarker)} 
-                // animation: google.maps.Animation.DROP
+
+
+                // animation = setAnimation(window.google.maps.Animation.BOUNCE)
 
 
 
