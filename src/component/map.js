@@ -1,6 +1,8 @@
+/*global google*/
+
 import React, { Component }from 'react'
 
-import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow} from "react-google-maps"
+import { withScriptjs, withGoogleMap, GoogleMap, Marker, InfoWindow, Animation} from "react-google-maps"
 
 // pass in new props with the data from the square api
 const MyMapComponent = withScriptjs(
@@ -10,18 +12,40 @@ const MyMapComponent = withScriptjs(
       zoom={props.zoom} 
       defaultCenter={{ lat: 25.7617, lng: -80.1918 }} 
       center= {{ lat:parseFloat(props.center.lat), lng: parseFloat(props.center.lng) }}
-    >
+
+    >  
         {props.markers && 
           props.markers
           // show markers that are visible 
           .filter(marker => marker.isVisible)
           .map((visibleMarker, index) => {
-
+      
             const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
+
+            
             return(
               <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
-                onClick= {() =>props.handleMarkerClick(visibleMarker)} 
-                > 
+                onClick= {
+                  () =>props.handleMarkerClick(visibleMarker)} 
+
+                // icon= {'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
+
+                // marker.setIcon('https://www.google.com/mapfiles/marker_green.png')
+
+                // animation={ google.maps.Animation.DROP}    
+                defaultAnimation={google.maps.Animation.BOUNCE}
+                // animation={ google.maps.Animation.DROP}    
+
+                // marker.addListener('click', toggleBounce);
+                // animation = setAnimation(window.google.maps.Animation.BOUNCE)
+
+                // onClick= {() => props.changeMarker(visibleMarker)}
+
+                
+                // onClick={() => props.animation = this.props.google.maps.Animation.BOUNCE}
+                // animation= {props.animation.setAnimation(window.google.maps.Animation.BOUNCE)}
+                >
+
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                   <React.Fragment>
@@ -41,6 +65,8 @@ const MyMapComponent = withScriptjs(
   ))
 );
 
+// animation={window.google.maps.Animation.DROP}  
+
 
 export default class Map extends Component{
   render(){
@@ -54,6 +80,7 @@ export default class Map extends Component{
         containerElement={<div style={{ height: `92vh` }} />}
         mapElement={<div style={{ height: `100%` }} />}
         role="navigation"
+        aria-label= "map"
       />
 
     )
