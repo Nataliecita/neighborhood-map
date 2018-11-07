@@ -85,6 +85,11 @@ class App extends Component {
   }
 
   componentDidMount(){
+    window.gm_authFailure = () => {
+      alert(`ERROR: Failed to load Google Map`)
+      console.log(`ERROR: Failed to load Google Map`)
+    }
+
     console.log("mounted!")
     // fetch data from FourSquare API
     SquareAPI.search({
