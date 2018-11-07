@@ -3,11 +3,7 @@ import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
 import MenuContainer from "./component/menuContainer"
-import Footer from "./component/footer"
-import { withGoogleMap, GoogleMap, Animation } from "react-google-maps"
 
-
-/*global google*/
 
 class App extends Component {
 
@@ -18,7 +14,8 @@ class App extends Component {
       markers: [],
       center: [],
       zoom: 13,
-      filterText: ""
+      filterText: "",
+      markerSelected: false
     } 
   }
 
@@ -84,12 +81,17 @@ class App extends Component {
   }
 
   componentDidMount(){
+    window.gm_authFailure = () => {
+      alert(`ERROR: Failed to load Google Map`)
+      console.log(`ERROR: Failed to load Google Map`)
+    }
+
     console.log("mounted!")
     // fetch data from FourSquare API
     SquareAPI.search({
       near: "Miami, FL",
       query: "beer",
-      limit: 2
+      limit: 6
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;
@@ -100,11 +102,8 @@ class App extends Component {
           isOpen: false,
           isVisible: true,
           id: venue.id, 
-          // add animation here?
-          // animation: window.google.maps.Animation.DROP
         }
       });
-      console.log( `hiiiii`,markers)
       this.setState({venues, center, markers})
      })
   }
@@ -121,7 +120,7 @@ class App extends Component {
         <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
 
 
-              Data provided by FourSquare
+              {/* Data provided by FourSquare */}
 
       </div>
     );

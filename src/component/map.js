@@ -1,4 +1,3 @@
-/*global google*/
 
 import React, { Component }from 'react'
 
@@ -18,34 +17,22 @@ const MyMapComponent = withScriptjs(
           props.markers
           // show markers that are visible 
           .filter(marker => marker.isVisible)
-          .map((visibleMarker, index) => {
+          .map((visibleMarker, index, arr) => {
       
             const venueInfo = props.venues.find(venue => venue.id === visibleMarker.id)
 
             
             return(
-              <Marker key={index} position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
-                onClick= {
-                  () =>props.handleMarkerClick(visibleMarker)} 
+              <Marker 
+              key={index} 
+              tabIndex="0"
+              position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
+              onClick= {() =>props.handleMarkerClick(visibleMarker)} 
 
-                // icon= {'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'}
-
-                // marker.setIcon('https://www.google.com/mapfiles/marker_green.png')
-
-                // animation={ google.maps.Animation.DROP}    
-                defaultAnimation={google.maps.Animation.BOUNCE}
-                // animation={ google.maps.Animation.DROP}    
-
-                // marker.addListener('click', toggleBounce);
-                // animation = setAnimation(window.google.maps.Animation.BOUNCE)
-
-                // onClick= {() => props.changeMarker(visibleMarker)}
-
-                
-                // onClick={() => props.animation = this.props.google.maps.Animation.BOUNCE}
-                // animation= {props.animation.setAnimation(window.google.maps.Animation.BOUNCE)}
+              // check if there is only one marker that is vivisble and animate accordingly  
+              animation={ arr.length === 1 ? window.google.maps.Animation.BOUNCE:  window.google.maps.Animation.DROP}   
+            
                 >
-
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
                   <React.Fragment>
@@ -65,7 +52,6 @@ const MyMapComponent = withScriptjs(
   ))
 );
 
-// animation={window.google.maps.Animation.DROP}  
 
 
 export default class Map extends Component{
