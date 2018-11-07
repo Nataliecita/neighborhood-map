@@ -51,7 +51,7 @@ class MenuContainer extends Component {
   render() {
     return (
       <div>
-        <MenuButton handleMouseDown={this.handleMouseDown}/>
+        <MenuButton handleMouseDown={this.handleMouseDown} aria-labelledby="menubutton"/>
 
         <Menu menuVisibility={this.state.visible} {...this.props}
         handleClickItem={this.props.handleClickItem} handleChange={this.props.handleChange} venues = {this.handleFilterVenues()}/>

@@ -9,6 +9,7 @@ class SearchBar extends Component {
           type={"search"}
           placeholder="Search venue..."
           id={"search"}
+          aria-label={"Search Venues"}
           onChange={this.props.handleChange}
         />
 
