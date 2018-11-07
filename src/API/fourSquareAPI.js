@@ -31,6 +31,13 @@ function URLBuilder(urlParams){
     .join("&")  
 }
 
+function handleErrors(response) {
+  if (!response.ok) {
+      throw Error(response.statusText);
+  }
+  return response;
+}
+
 export default class SquareAPI2 {
   static getVenues(urlParams) {
     return fetch(`${api}/venues/search/?${auth()}&${URLBuilder(urlParams)}`, { 
@@ -40,8 +47,10 @@ export default class SquareAPI2 {
         'Content-Type': 'application/json'
       } 
     })
+      .then(handleErrors)
       .then(res => res.json())
       .then(data=> data.response.venues)
+      .catch(error => console.log(error))
   }
 
 }
