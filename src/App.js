@@ -18,7 +18,8 @@ class App extends Component {
       markers: [],
       center: [],
       zoom: 13,
-      filterText: ""
+      filterText: "",
+      markerSelected: false
     } 
   }
 
@@ -121,7 +122,7 @@ class App extends Component {
         <Map {...this.state} handleMarkerClick= {this.handleMarkerClick} />
 
 
-              Data provided by FourSquare
+              {/* Data provided by FourSquare */}
 
       </div>
     );
