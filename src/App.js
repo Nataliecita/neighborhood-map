@@ -3,11 +3,7 @@ import './App.css';
 import Map from './component/map'
 import SquareAPI from "./API/"
 import MenuContainer from "./component/menuContainer"
-import Footer from "./component/footer"
-import { withGoogleMap, GoogleMap, Animation } from "react-google-maps"
 
-
-/*global google*/
 
 class App extends Component {
 
@@ -95,7 +91,7 @@ class App extends Component {
     SquareAPI.search({
       near: "Miami, FL",
       query: "beer",
-      limit: 2
+      limit: 6
     }).then(results => {
       const { venues } = results.response
       const { center } = results.response.geocode.feature.geometry;
@@ -106,11 +102,8 @@ class App extends Component {
           isOpen: false,
           isVisible: true,
           id: venue.id, 
-          // add animation here?
-          // animation: window.google.maps.Animation.DROP
         }
       });
-      console.log( `hiiiii`,markers)
       this.setState({venues, center, markers})
      })
   }

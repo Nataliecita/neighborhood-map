@@ -29,12 +29,9 @@ const MyMapComponent = withScriptjs(
               position={{ lat: visibleMarker.lat, lng: visibleMarker.lng }}
               onClick= {() =>props.handleMarkerClick(visibleMarker)} 
 
-                animation={ arr.length === 1 ? window.google.maps.Animation.BOUNCE:  window.google.maps.Animation.DROP}   
-                
-                // ADD CONDITIONAL!! If there is a selected marker give a certain animation otherwise dont; 
-
-
-                // animation = {props.markerSelected === true ? google.maps.Animation.BOUNCE : google.maps.Animation.DROP }
+              // check if there is only one marker that is vivisble and animate accordingly  
+              animation={ arr.length === 1 ? window.google.maps.Animation.BOUNCE:  window.google.maps.Animation.DROP}   
+            
                 >
                 {visibleMarker.isOpen && venueInfo.bestPhoto && (
                   <InfoWindow>
@@ -55,7 +52,6 @@ const MyMapComponent = withScriptjs(
   ))
 );
 
-// animation={window.google.maps.Animation.DROP}  
 
 
 export default class Map extends Component{
