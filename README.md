@@ -2,6 +2,9 @@
 
 This project is the final project of Udacity's Front-End Nanodegree. It displays venues on a Google Map.
 
+## Live version
+https://activity-google-map.herokuapp.com/
+
 ## Dependencies
 - react-google-maps
 - Google Maps API
